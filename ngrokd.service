@@ -1,0 +1,12 @@
+[Unit]
+Description=ngrokd service
+After=network.target
+StartLimitIntervalSec=0
+[Service]
+Type=simple
+Restart=always
+RestartSec=1
+User=root
+ExecStart=/usr/local/bin/ngrokd -tlsKey="/root/ssls/privkey2.pem" -tlsCrt="/root/ssls/fullchain2.pem" -domain="tunnel.dmnavarro.com"
+[Install]
+WantedBy=multi-user.target
